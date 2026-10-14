@@ -97,7 +97,7 @@ paper_checker/
    ```bash
    export GEMINI_API_KEY=your_api_key_here
    ```
-   Or edit `backend/config.py` directly (not recommended for production).
+   Set the key in your shell environment; do not put credentials in source files.
 
 4. **Start the application:**
    ```bash
@@ -185,7 +185,7 @@ The system uses a 4-step AI grading process:
 ## Configuration
 
 ### Backend Configuration
-- Edit `backend/config.py` for API settings
+- Set `GEMINI_API_KEY` in the environment; edit `backend/config.py` only for non-secret model settings
 - Edit `backend/app.py` for CORS origins if needed
 - Default port: 5000
 
@@ -243,7 +243,7 @@ Currently uses JSON files. To migrate to SQL:
 ## Security Notes
 
 - Change `app.secret_key` in production
-- Use environment variables for API keys
+- Keep API keys in environment variables; never commit real credentials
 - Implement HTTPS in production
 - Add rate limiting for API endpoints
 - Consider JWT tokens instead of sessions
